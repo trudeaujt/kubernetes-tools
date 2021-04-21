@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubia-headless
+spec:
+  clusterIP: None # this makes the server headless. it will have no cluster IP, and its endpoints include the pods matching its selector that pass the readiness probe.
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: kubia

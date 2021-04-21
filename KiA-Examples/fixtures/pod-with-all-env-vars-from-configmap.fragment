@@ -1,0 +1,7 @@
+spec:
+  containers:
+  - image: some-image
+    envFrom:
+    - prefix: CONFIG_ # all environment variables will start with CONFIG_, so CONFIG_FOO, CONFIG_BAR
+      configMapRef:
+        name: my-config-map

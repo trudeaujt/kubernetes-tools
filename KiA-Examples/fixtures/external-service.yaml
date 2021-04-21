@@ -1,0 +1,8 @@
+# defining a service without a pod selector
+apiVersion: v1
+kind: Service
+metadata:
+  name: external-service # must match the name of the Endpoints object
+spec:
+  ports:
+  - port: 80 # accepting incoming connections on port 80, but no pod is defined for the service
