@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-pvc # name of the claim - need this later when using the claim as the pod's volume
+spec:
+  resources:
+    requests:
+      storage: 1Gi
+  accessModes:
+  - ReadWriteOnce # want the storage to support a single client performing both reads and writes
+  storageClassName: "" # used for dyanamic provisioning

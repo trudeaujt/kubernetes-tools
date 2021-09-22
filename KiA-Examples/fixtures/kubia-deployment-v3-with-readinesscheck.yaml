@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jon-website
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: jon-website
+      labels:
+        app: jon-website
+    spec:
+      containers:
+      - image: trudeaujt/website:latest
+        name: nodejs
+        readinessProbe:
+          periodSeconds: 1
+          httpGet:
+            path: /
+            port: 8080
+  selector:
+    matchLabels:
+      app: jon-website
